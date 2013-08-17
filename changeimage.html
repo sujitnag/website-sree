@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script src="mycookies.js"></script>
+<script src="jquery-1.7.1.min.js"></script>
+
+<title></title>
+<script>
+
+
+    
+
+
+function setval(){
+var uids=getCookie("und");
+
+/*var fname=document.forms["cimg"]["file"].['name'].value;
+//alert(fname);
+var fn=fname.split(".");
+fname=uids+"."+fn[1];
+//alert(fname);
+setCookie("uimg",fname,30);*/
+
+var und=uids.replace("BMU","");
+
+var imgnv=document.getElementById("imgn").value=parseInt(und);
+ 
+
+if(imgnv!=0){
+
+return true;
+}
+else{
+return false;
+}
+
+
+
+}
+  
+
+//imgnv.value=und
+
+</script>
+<meta name="" content="">
+</head>
+<body>
+<img src="addmin/max.jpg" alt="max 30k" width="50" height="50" border="2"></img>
+<form name="cimg" action='uploadimage.php' method='post' enctype='multipart/form-data' onsubmit="return setval()">
+<label for="file" title="Filename">ফাইল নাম:</label>
+<input type="file" name="file" id="file"><br>
+<input type='hidden' name='imgn' id="imgn"  >
+<input type='hidden' name='flg' id="flg"  value=1>
+<input type='submit' name='submit'  value="দাখিল করা"  title="Submit"  id="sb">
+</form>
+
+
+
+</body>
+</html>

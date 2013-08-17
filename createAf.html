@@ -1,0 +1,128 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" src="keyboard.js" charset="UTF-8"></script>
+ <script src="jquery-1.7.1.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="keyboard.css">
+ <script src="mycookies.js"></script>
+<title></title>
+<meta name="" content="">
+<style>
+
+</style>
+
+
+<script>
+//function att(){
+//var sname=document.getElementById("sname");
+//VKI_attach(sname);
+//}
+var uids=getCookie("und");
+  uids=uids.replace("BMU","");
+  var ids=parseInt(uids);
+var username=getCookie("uname");
+
+
+
+
+
+
+
+//var uimge=getCookie("uimg");
+
+function att(){
+
+$("#wm").val(username);
+var tod= new Date();
+//var ttd=tod.getDay()+"-"+tod.getMonth()+"-"+tod.etFullYear();
+//Date().getYear();
+//alert(ttd);
+$("#cd").val(tod);
+
+}
+
+
+
+
+
+function myf(){
+
+var cn=$("#sel option:selected").val();
+var sn=$("#sname").val();
+if(cn!="" && sn!=""){
+//alert(cn+"  "+sn+"  "+ids);
+ $.post("createAf.php",
+    {
+     // uid:uids,
+	  type:cn,
+      name:sn,
+	  uid:ids
+	 },
+	
+    function(data1,data2){
+	//alert("data1="+data1);
+	var myarr=data1.split(",");
+	
+		if(myarr[0].trim()=="ok"){
+       // alert(myarr[1]);
+		
+			//alert("ok"+cuids+"ok");
+	 uids=uids.replace("BMU","");
+	
+	//alert("ok---------------")//+myp.length);//+myp[0]+"          "+myp[1
+	open("editors.html?create&"+myarr[1]+"&"+uids+"&"+"","_self");
+		
+		
+		
+		}
+});
+
+//alert("enter");
+//
+}
+else{
+alert("সমসত তথ্য পুরন করুন");
+}
+
+
+
+}
+// onload="att()"
+</script>
+
+</head>
+<body onload="att()">
+
+<fieldset>
+  <legend>নতুন লেখা সম্বন্ধে তথ্য </legend>
+  <p> ধরন 
+<select id="sel" onselected="myf()">
+  <option value=""></option>
+  <option value="g">গল্প</option>
+  <option value="k">কবিতা</option>
+  <option value="u">উপন্যাস</option>
+  <option value="s">শিশু সাহিত্য</option>
+</select>
+</p>
+<br>
+<label for="sname">নাম</label>
+<input type="text" name="sname" class="keyboardInput" id="sname"  ></input><br>
+
+
+
+</fieldset>
+<fieldset>
+<legend>নতুন লেখা সম্বন্ধে তথ্য </legend>
+<label for="wm">লেখকের নাম</label>
+<input type="text" id=wm disabled="true"></input><br>
+<label for="cd">তারিখ</label>
+<input type="text" id=cd disabled="true"></input><br>
+
+
+</fieldset>
+
+<button onclick="myf()" title="click">নতুন লেখা শুরুর জন্য click করুন</button>
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script src="jquery-1.7.1.min.js"></script>
+<title></title>
+<meta name="" content="">
+<script>
+function myjs(){
+
+  var parameters = location.search;//.substring(1).split("&");
+    //var temp = parameters[0].split("=");
+    //l = unescape(temp[1]);
+	parameters=parameters.replace("?","");
+	//alert(parameters);
+	var allv=parameters.split("&");
+	
+	//var uidc=;
+   // alert(allv[0]+" "+allv[1]);
+	
+	
+	 $.post( "designArtical.php",//"login.php"   ,
+    {
+	//email:"sujitnag2011@gmail.com",
+   //   pasw:"sujitnag"
+	
+     gid: allv[0],
+	  ss: allv[1]
+      //pasw:$("#pasw").val()
+    },
+    function(data1,data2){
+   var myarr=data1.split(",");
+	//var uidc=;
+//	var rwp=myarr[0].toString();
+	alert(data1);	
+	//rwp=rwp.trim();
+	//var pcimg=document.getElementById("art");
+	//pcimg.setAttribute("src",myarr[1] );//allv[0]);
+	
+	//$("#art").attr("src",myarr[1]);
+	$("#art").load(myarr[1]);
+	
+	////////////////////////////////////////
+	/*$.post( "designArtical.php",//"login.php"   ,
+    {
+	//email:"sujitnag2011@gmail.com",
+   //   pasw:"sujitnag"
+	
+     id: allv[0],
+	  ss: allv[1]
+      //pasw:$("#pasw").val()
+    },
+    function(data1,data2){
+   var myarr=data1.split(",");
+	//var uidc=;
+//	var rwp=myarr[0].toString();
+	alert(data1);	
+	//rwp=rwp.trim();
+	var pcimg=document.getElementById("art");
+	pcimg.setAttribute("src",myarr[1] );//allv[0]);
+	//$("#art").attr("src",myarr[1]);
+	
+	*/
+	
+	///////////////////////////////////////////
+	
+	//setCookie("und",myarr[0]+"BMU",30)
+	//setCookie("uname",myarr[1],30);
+	//setCookie("uimg",myarr[5],30);
+	//var usn=getCookie("uname");
+      
+	  //window.parent.location = 'into.html';//reload the parent window
+	 	//window.location = 'into.html';
+	 // $("#un").append(myarr[1]);
+	 
+    });
+	
+	
+	alert("end");
+	
+	
+	
+	//var pcimg=document.getElementById("art");
+	//pcimg.setAttribute("src",parameters );//allv[0]);
+	
+	//document.getElementById("Aimg").setAttribute("src","image/2BMU.jpeg")
+	
+	}
+</script>
+</head>
+
+
+<body onload="myjs()">
+<img src="" width="100" height="100" id="Aimg" ></img>
+<!--<iframe src=""  name="art" id="art" width="800" height="200"   /></iframe>-->
+<div id="art"></div>
+</body>
+</html>

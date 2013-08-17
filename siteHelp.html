@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="" content="">
+ <script type="text/javascript" src="keyboard.js" charset="UTF-8"></script>
+ <script src="jquery-1.7.1.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="keyboard.css">
+<style>
+div{
+font-size:large;
+color:#008000;
+}
+p{
+font-size:medium;
+color:#ff00ff;
+cursor: help;
+
+}
+body{
+border:2px double #8833ff;
+padding: 20px;
+
+}
+
+</style>
+
+<script>
+$(document).ready(function(){
+$("div").hide();
+
+
+  $("#q1").click(function(e){
+  
+    $("#a1").slideToggle();
+	
+  });
+  
+  $("#q2").click(function(){
+    $("#a2").slideToggle();
+  });
+  
+  $("#q3").click(function(){
+    $("#a3").slideToggle();
+  });
+  
+  $("#q4").click(function(){
+    $("#a4").slideToggle();
+  });
+  
+});
+</script>
+
+</head>
+<body>
+
+<p id="q1">site সমন্ধিয় </p>
+<div id="a1">
+<pre>
+এই site টি একটি free site. 
+প্রথমে register করুন নিজের নাম ।
+তার পর প্রবেশ (login) করুন ।
+
+এর পর আপনি আপনার খাতা(account) রক্ষনাবেক্ষন করুন ।
+</pre>
+</div>
+
+<p id="q2">নিজের লেখা পাঠাবেন </p>
+<div id="a2">
+<pre>
+সৃষ্টি তে যান click করুন "নতুন লেখা জমা দিন" । বাংলা keybord   <img src="keyboard.png"></img> ব্যবহার করুন
+</pre>
+</div>
+<p id="q3">বাংলা অক্ষর </p>
+<div id="a3">
+<pre>
+virtual keybord   <img src="keyboard.png"></img> ব্যবহার করুন ।
+virtual keybord এ বাংলা ভাষা select করুন ।
+
+সহজ                      কঠিন                  যুক্ত অক্ষর
+ক+ে=কে
+ক+া=কা                ক+্+য=ক্য               ক+্+ত =ক্ত
+ক+ি=কি                ক+্+র=ক্র
+ক+ী==কী               র+্+ক=র্ক
+ক+ু=কু                
+ক+ূ=কূ
+ক+ৃ=কৃ
+ক+ো=কো
+ক+ৌ=কৌ
+</pre>
+<p style="color:#ff0000">প্রকটিস করুন </p>
+<textarea class="keyboardInput" ></textarea>
+
+
+</div>
+<p id="q4">অন্য সাহায্যের জন্য </p>
+<div id="a4">
+আমাদের E-mail করুন
+</div>
+
+
+
+
+
+</body>
+</html>

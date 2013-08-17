@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="description" content="Free online bengla Magazine">
+<meta name="keywords" content="online,bengla,Magazine,online bengla Magazine,online bengla patrika,বাংলা পত্রিকা,অন লাইন বাংলা পত্রিকা, free online bengla">
+<meta name="author" content="Sujit Nag">
+<script src="mycookies.js"></script>
+<style>
+
+a:link {color:#00ffff;}
+//a:visited {background-color:#FFFF85;}
+//a:hover {background-color:#FF704D;}
+//a:active {background-color:#FF704D;}
+a:link#lk {color:#B299ff;
+             text-decoration: none;
+             font-size: 16px; } 
+a:link {text-decoration: none;
+          font-size: 24px; 
+		  color:#00ffff;} 
+   /* unvisited link */
+a:visited {text-decoration:none;
+           background-color:#FFFF85;} /* visited link */
+a:hover {text-decoration:underline;
+            color:#FF0990;
+            background-color:#FF704D;}   /* mouse over link */
+a:active {text-decoration:underline;
+         background-color:#FF704D;}  /* selected link */
+</style>
+
+
+</head>
+<body>
+<h1>সুচীপত্র</h1>
+<a href="findA.php?type=a" target="first">সব</a><br>
+<a href="findA.php?type=k" target="first">কবিতা</a><br>
+<a href="findA.php?type=g" target="first">গল্প</a><br>
+
+<a href="findA.php?type=u" target="first">উপন্যাস</a><br>
+
+<a href="findA.php?type=s" target="first">শিশু গল্প</a><br>
+<hr>
+<script>
+
+
+var uids=getCookie("und");
+  uids=uids.replace("BMU","");
+  var ids=parseInt(uids);
+if(ids!=0){
+document.write('<p style="color:#990055"> সৃষ্টি</p>');
+document.write('<a href="createAf.html" id="lk" target="first">নতুন লেখা জমা দিন</a><br>');
+document.write('<a href="findA.php?type=ed&uid='+ids+'" target="first" >পুরন লেখা সংশোধন করুন</a><br>');
+}
+</script>
+
+</script>
+
+</body>
+</html>

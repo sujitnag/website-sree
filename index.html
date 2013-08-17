@@ -1,0 +1,302 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta name="description" content="Free online bengla Magazine">
+<meta name="keywords" content="online,bengla,Magazine,online bengla Magazine,online bengla patrika,বাংলা পত্রিকা,অন লাইন বাংলা পত্রিকা, free online bengla">
+<meta name="author" content="Sujit Nag">
+<link rel="shortcut icon" type="image/x-png" href="addmin/logo.jpg"  />
+<script src="mycookies.js"></script>
+<title>শ্রী</title>
+ <script src="jquery-1.7.1.min.js"></script>
+
+
+<style>
+
+#db{
+display:none;
+position:absolute;
+top:150px;
+left:150px;
+background: linear-gradient(#ffffff, #e5e5e5);
+padding: 10px 10px 10px 10px;
+//background-color:#9966ff;
+border:2px solid #e4e4e4;
+border-radius:20px;
+width:1000;
+height:500;
+z-index=999; 
+color:#ff0000;
+box-shadow: 10px 10px 5px #c0c0c0;
+}
+
+table{
+background: linear-gradient(#99ff00, #990000);
+//background: linear-gradient(#00ffff, #00ff80);
+}
+#afl {
+    position: absolute;
+    top: 150px;
+   // bottom: 500px;
+    left: 300px;
+    //right: 500px;
+    overflow: auto;
+    }
+
+	#si {
+    position: absolute;
+    top: 150px;
+    //bottom: 700px;
+    left: 0px;
+    //right: 800px;
+    overflow: auto;
+    }
+	
+	 
+	  
+#un{
+//text-align: left;
+font-size: 20px;
+}
+#hd{
+//background-color: #408080,#408088;
+//border-style: ridge;
+//border-color: #c0c0c0;
+//border-radius: 10px;
+//border-width: 10px;
+color: #00ff00;
+text-align: right;
+opacity:.80;
+
+}
+
+#acl{
+color: #00ffff;
+ //text-shadow: #ff0000 9px 9px 15px;//, #cfc430 -9px -9px 15px;
+font-size: 20px;
+//font-family:Times new;
+text-align: right;
+
+}
+span#acl:hover{color: #008000;}
+
+#banner{
+
+color: #ffffff;
+ text-shadow: #000000 9px 9px 15px;//, #cfc430 -9px -9px 15px;
+font-size: 64px;
+font-family:Times new;
+text-align: right;
+
+//background-color: #000080;
+//border-style: ridge;
+//border-color: #0000ff;
+//border-radius: 10px;
+//border-width: 10px;
+}
+
+
+#tt{
+position: absolute;
+    top: 150px;
+    //bottom: 700px;
+    left: 1220px;
+    //right: 800px;
+    overflow: auto;
+
+}
+
+a:link {text-decoration:none;}    /* unvisited link */
+a:visited {text-decoration:none;} /* visited link */
+a:hover {text-decoration:underline;}   /* mouse over link */
+a:active {text-decoration:underline;}  /* selected link */
+
+#hr2{color:#00ffff;
+background-color:#00ffff;
+position:absolute;
+top:150px;
+left:295px;
+
+width:2px;
+height:100%;
+
+}
+#hr3{color:#00ffff;
+background-color:#00ffff;
+position:absolute;
+top:150px;
+left:1210px;
+
+width:2px;
+height:100%;
+
+}
+
+
+</style>
+
+<script>
+
+function showI(){//width:1000;height:500;append()
+//alert("ok");
+$("#opend").attr("disabled","true");
+$("#email").attr("disabled","true");
+$("#help").attr("disabled","true");
+$("#abus").attr("disabled","true");
+
+$("#db").css({"top":"150px","left":"150px"});
+$("#db").css("width","1000");
+$("#db").css("height","500");
+$("#db").append('<iframe src="addmin/getInvolve.html"  class="rm" width="990" height="470" frameborder="0" seamless  /></iframe>');
+$("#db").fadeIn();
+
+}
+
+function showE(){
+//alert("ok");
+
+$("#opend").attr("disabled","true");
+$("#email").attr("disabled","true");
+$("#help").attr("disabled","true");
+$("#abus").attr("disabled","true");
+
+$("#db").css({"top":"150px","left":"150px"});
+$("#db").css("width","1000");
+$("#db").css("height","500");
+$("#db").append('<iframe src="addmin/sendemail.html"  class="rm" width="990" height="470" frameborder="0" seamless  /></iframe>');
+$("#db").fadeIn();
+
+}
+
+function showH(){
+$("#opend").attr("disabled","true");
+$("#email").attr("disabled","true");
+$("#help").attr("disabled","true");
+$("#abus").attr("disabled","true");
+
+
+$("#db").css({"top":"150px","left":"150px"});
+$("#db").css("width","1000");
+$("#db").css("height","500");
+$("#db").append('<iframe src="addmin/siteHelp.html"  class="rm" width="990" height="470" frameborder="0" seamless  /></iframe>');
+$("#db").fadeIn();
+
+}
+
+function showU(){
+$("#opend").attr("disabled","true");
+$("#email").attr("disabled","true");
+$("#help").attr("disabled","true");
+$("#abus").attr("disabled","true");
+
+$("#db").css({"top":"300px","left":"500px"});
+$("#db").css("width","200");
+$("#db").css("height","100");
+$("#db").append('<p class="rm">Developed by Sujit Nag</p>');
+$("#db").fadeIn();
+
+}
+function closebut(){
+//alert("ok");
+
+
+
+$("p, iframe").remove(".rm");
+$("#db").fadeOut(400);
+
+
+$("#opend").removeAttr("disabled");
+$("#email").removeAttr("disabled");
+$("#help").removeAttr("disabled");
+$("#abus").removeAttr("disabled");
+}
+
+
+
+</script>
+
+</head>
+<body onload="checkCookie()" >
+
+<div id="tt">
+<table>
+<tr><td>
+<a href="http://sree.yzi.me/BMRSS.xml" title="RSS">
+<img src="addmin/rss.jpg" width="50" height="50"></a>
+</td><td>
+<button id="opend" style="float:right" onclick="showI()"><img src="addmin/opend.jpg" width="50" height="50"  title="অংশগ্রহন"></img></button>
+</td>
+</tr>
+<tr><td>
+<button id="email" style="float:right" onclick="showE()"><img src="addmin/email.jpeg" width="50" height="50"  title="ই-মেল"></img></button>
+</td>
+<td>
+<button onclick="showH()"  id="help" style="float:right" ><img src="addmin/help.jpg" width="50" height="50"  title="সাহায্য (help)"></img></button>
+
+</td></tr>
+
+<tr>
+<td>
+<button id="abus" style="float:right" onclick="showU()"><img src="addmin/aboutUs.jpg" width="50" height="50"  title="আমাদের সম্বন্ধে"></img></button>
+</td>
+<td></td>
+
+</tr>
+
+</table>
+</div>
+
+
+<table id="hd" width="100%" >
+<tr>
+<td align="left" >
+<span id="un">স্বাগত , </span></td> <td><span id="banner"><b>   শ্রী         </b></span></td>
+ <td><a href="changeimage.html" title="ছবি" target="first"><img src="defimg.jpg" width="50" height="50" id="pimg"></img></a><a href="setting.html" title="Setting" target="first" ><span id="acl"><b>  বিন্যাস</b> </span></a>|<a href="logout.html" title="Logout" target="first"><span id="acl"><b> প্রস্থান </b></span></a>|<a href="loginpage.html" title="Login" target="first"><span id="acl" class="lo" value="lo-gin" ><b> প্রবেশ </b></span></a>|<a href="register.html"  title="Register" target="first" ><span id="acl" class="reg" value="reg" ><b> নিবন্ধ </b></span></a>
+</td>
+</tr>
+</table>
+
+
+
+<iframe src="side-index.html"  name="sideindex" id="si"  height="400"  width="290" title="suchi" frameborder="0" seamless  /></iframe>
+<hr>
+<hr id="hr2"> 
+<hr id="hr3"> 
+<iframe src="all-file-list.html"  name="first" id="afl"  width="900" height="100%" frameborder="0" seamless  /></iframe>
+<!--<iframe src="all-file-list.html"  name="first" id="afl"  width="900" height="400" frameborder="0" seamless  /></iframe>  width="290"  frameborder="0" seamless  -->
+
+<script>
+var simg=getCookie("uimg");
+var username=getCookie("uname");
+var pcimg=document.getElementById("pimg");
+simg="image/"+simg;
+$("#un").append(username);
+pcimg.setAttribute("src",simg);
+//$("acl").to
+/////////////////////////////////////  get value from server////////////////
+//$(document).ready(function(){
+  //$("button").click(function(){
+  //  $.post("result.php",
+    //{
+      //name:"Donald Duck",
+    //  city:"Duckburg"
+    //},
+    //function(data1,data2){
+    //var myarr=data1.split(",");
+      //alert("Data: " + myarr[0] +"data2"+myarr[1]);
+	 // $("#un").append(myarr[1]);
+    //});
+  //});
+//});
+
+
+
+
+</script>
+
+<div id="db">
+<button id="closed" style="float:right" onclick="closebut()"> <img src="addmin/close.png" width="20" height="20"></img></button>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script src="mycookies.js"></script>
+<script type="text/javascript" src="keyboard.js" charset="UTF-8"></script>
+ <link rel="stylesheet" type="text/css" href="keyboard.css">
+<title></title>
+<script src="jquery-1.7.1.min.js"></script>
+<meta name="" content="">
+<script>
+function setfn(){
+var username=getCookie("uname");
+//alert()
+var myarr=username.split(" ");
+var nm=myarr[0].toString();
+
+$("#Fname").val(nm);
+var nm=myarr[1].toString();
+$("#Lname").val(nm);
+
+}
+
+$(document).ready(function(){
+
+
+
+ $("#sbn").click(function(){
+
+var fn=$("#Fname").val();
+var ln=$("#Lname").val();
+
+ if(( fn==""||fn==null) &&(ln==""||ln==null)){
+   alert("fill all field");
+  return ;
+  }
+
+  var uids=getCookie("und");
+  var und=uids.replace("BMU","");
+  var ids=parseInt(und);
+
+  
+  
+   $.post("setting.php",
+   { Fname: fn,//$("#Fname").val(),
+      Lname: ln,//$("#Lname").val(),
+	  imgn: ids,
+	  flg:0
+  
+    },
+  function(data,status){
+  
+    //alert("Data: " + data + "\nStatus: " + status);
+	
+	if(status=="success"){
+ var ff=fn+" "+ln;
+    setCookie("uname",ff,30);
+	parent.document.getElementById("un").innerHTML="স্বাগত"+", "+ff;
+	
+     }
+	
+  });
+});
+
+
+
+ $("#sb2").click(function(){
+
+var pass=$("#pasw").val();
+var pass1=$("#pasw1").val();
+if(pass !=pass1){
+   alert("password mismach");
+  return ;
+  }
+if((pass ==""||pass ==null) &&(pass1==""||pass1==null)){
+   alert("pass:-fill all field" );
+  return ;
+  }  
+
+
+  var uids=getCookie("und");
+  var und=uids.replace("BMU","");
+  var ids=parseInt(und);
+ 
+ 
+   $.post("setting.php",
+   { 
+    pasw: pass,//$("#pasw").val(),
+	imgn: ids,
+	flg: 1
+    },
+  function(data,status){
+  
+  
+   // alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+});   
+  
+  
+
+
+</script>
+<style>
+
+</style>
+
+
+</head>
+
+<body onload="setfn()">
+<fieldset>
+  <legend style="color: #67ff99; font-size:26px; background-color:#998800 " title="your account setting">আপনার অ্যাকাউন্ট বিন্যাস:</legend>
+
+<!--<form name="rform" action="setting.php" method="POST" onsubmit="return validateForm()" >-->
+<input type='hidden' name='imgn' id="imgn"  >
+<input type="hidden" name="flg" id="flg" >
+
+<label for="Fname" title="First-Name" >নামের প্রথমাংশ::</label>
+<input type="text" name="Fname" id="Fname" class="keyboardInput">
+
+<label for="Lname" title="Last Name">পদবি:</label>
+<input type="text" name="Lname" id="Lname" class="keyboardInput">
+
+<input type="button" name="submit" value="সংরক্ষণ করুন" title="Save" id="sbn" style="float:right; color:#ff0000">
+<p>ই মেইল: ------------------ পরিবর্তন করতে পারবেন না</p>
+<!--</form>
+
+<form name="r1form" action="setting.php" method="POST" onsubmit="return validateForm1()" >-->
+
+<label for="Password" title="Password">পাসওয়ার্ড:</label>
+<input type="password" name="pasw" id="pasw"  class="keyboardInput">
+<label for="Password" title="Confirm Password"> পাসওয়ার্ড নিশ্চিত করুন:</label>
+<input type="password" name="pasw1" id="pasw1"  class="keyboardInput">
+<input type="button" name="submit" value="সংরক্ষণ করুন" title="Save"  id="sb2" style="float:right; color:#ff0000">
+</fieldset>
+<!--</form>-->
+</body>
+</html>

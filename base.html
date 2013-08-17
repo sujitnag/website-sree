@@ -1,0 +1,223 @@
+﻿<html>
+	<head>
+		<title>ইনডেx</title>
+<script src="mycookies.js"></script>
+         <script src="jquery-1.7.1.min.js"></script>
+		<!--<script src="readXML.js"></script>-->
+	<script>
+	//alert("ok claaed");
+	 var parameters = location.search;//.substring(1).split("&");
+    //var temp = parameters[0].split("=");
+    //l = unescape(temp[1]);
+	//alert(parameters);
+	parameters=parameters.replace("?","");//+".xml";
+	//alert(parameters);
+	//var allv=parameters.split("&");
+	var cuids=getCookie("und");
+	 cuids=cuids.replace("BMU","");
+	var allides=[];
+	//parameters="allxml/5g.xml";
+	// Open the students.xml file  parameters
+	$.get(parameters,{},function(xml){//"comm.xml"
+      	
+		aname=$('article',xml).find("aname").text();
+		cdate=$('article',xml).find("cdate").text();
+		
+		// Build an HTML string
+		myHTMLOutput = '';
+	 	myHTMLOutput += '<table width="98%" border="1" cellpadding="0" cellspacing="0">';
+	    myHTMLOutput +='<th>'+cdate+'</th><th>'+aname+'</th>' ;//'<th>Name</th><th>Age</th><th>Phone</th><th>SSN</th>';
+	  	
+		
+		
+		// Run the function for each student tag in the XML file
+		$('user',xml).each(function(i) {
+			
+			
+			if(i!=0){
+		//	alert(uid);
+			uid = $(this).find("uid").text();
+			command = $(this).find("descript").text();//text();
+			//command1 = $(this).find("descript").html();
+			cdate = $(this).find("cdate").text();
+			//studentSSN = $(this).find("ssn").text();
+			//studentPost = $(this).find("name").attr("post"); 
+			allides[i]=uid;
+			// Build row HTML data and store in string
+			mydata = BuildStudentHTML(parameters,i,uid,command,cdate);
+			myHTMLOutput = myHTMLOutput + mydata;
+			}
+		});
+		myHTMLOutput += '</table>';
+		
+		// Update the DIV called Content Area with the HTML string
+		$("#ContentArea").append(myHTMLOutput);
+		//alert(allides[0]+" "+allides[1]);
+		allides.splice(0,1);
+		
+		///////////////////////////////////////////////////////////////
+		
+		 $.post( "designArtical.php",//"login.php"   ,
+    {
+	//email:"sujitnag2011@gmail.com",
+   //   pasw:"sujitnag"
+	
+     gid:allides
+	  
+      //pasw:$("#pasw").val()
+    },
+    function(data1,data2){
+//	alert(data1);
+   var myarr=data1.split(",");
+   var len=(myarr.length-1)/2;
+   
+ //  alert("len="+len);
+   for (j=0;j<len;j++){
+   //alert("enter in for" );
+   var k=j*2+1;
+   var imgf="image/"+myarr[k];
+ //var sec="p:eq("+j+")"
+  var sec="img:eq("+j+")";
+   //alert("sec="+sec+"imgf="+imgf);
+    //alert(myarr[2*j]);
+   $(sec).attr("src",imgf);//"img:eq(j)" "img:eq(0)""img:eq(0)"append
+  
+   $(sec).after("<br>"+myarr[2*j]);
+  //alert(myarr[j]);
+   }
+   
+   
+  // alert(data1);
+		
+	  });	
+		
+		
+		
+		/////////////////////////////////////////////////////////////////
+		
+		
+		
+		
+		
+		
+	});
+//});
+ 
+ 
+ 
+ function BuildStudentHTML(parameters,i,uid,command,cdate){
+	//var cuids=getCookie("und");
+	//alert("ok"+cuids+"ok");
+	// cuids=cuids.replace("BMU","");
+	
+	//alert("parameters="+parameters+"uid"+uid);
+	
+	
+	// Check to see if their is a "post" attribute in the name field
+	if ((uid) != undefined){
+		//studentPostHTML = "<strong>(" + studentPost + ")</strong>";
+	}
+	else
+	{
+		studentPostHTML = "";
+	}
+	
+	// Build HTML string and return
+	output = '';
+	output += '<tr>';
+	output += '<td ><img   width="50" height="50" ></img></td>';
+	//output += '<td>'+ uid + '</td>';
+	output += '<td id="comm">'+command+'</td>';
+	//$("#comm").html(command);
+	//alert("comm="+command)
+	if(uid==cuids){
+	
+	output += ' <td><button type="button" onclick="edit('+i+')">edit</button>'
+	//output +='<td><a href="editors.html?edit&'+parameters+'&'+i+'&'+command+'">edit</a>';// '<td> <button type="button"  onclick="edit('+i,command+')">edit</button><br><br><br>';//","+parameters+
+	//var eb=document.getElementById("edit");
+	//eb.setAttribute("onclick","edit(myp)");
+	//eb.onclick=function(){edit(i,command)};
+
+if(i!=1){
+	output += ' <button type="button" onclick="del('+i+')">delete</button></td>';//","+parameters+
+	}
+
+}
+	else{
+	output += '<td></td>';
+	}
+	
+	
+	//output += '<td>'+ cdate +'</td>';
+	//output += '<td>'+ studentSSN +'</td>';
+	output += '</tr>';
+	return output;
+}
+	
+	
+	/////////////////////////////    work on document////////////////////////// 
+	function del(p){
+	//alert("del="+parameters);
+	
+			 $.post( "mxml.php",//"login.php"   ,
+    {
+	//email:"sujitnag2011@gmail.com",
+   //   pasw:"sujitnag"
+	fileN:parameters,
+     indx:p,
+	 ty:'delete'
+	  
+      //pasw:$("#pasw").val()
+    },
+    function(data1,data2){
+	//alert(data1+"   "+data2);
+  if(data2="success"){
+  location.reload();
+  
+  }
+	});
+	}
+	////////////////////////////////////////////////////////
+	
+	function edit(p){
+	//alert("del="+parameters);
+	
+		open("editors.html?edit&"+parameters+"&"+p+"&"+"","_self");
+	
+	}
+	
+	
+	
+	
+	function pcomm(){
+	//var cuids=getCookie("und");
+	//alert("ok"+cuids+"ok");
+	// cuids=cuids.replace("BMU","");
+	
+	//alert("ok---------------")//+myp.length);//+myp[0]+"          "+myp[1
+	open("editors.html?create&"+parameters+"&"+ cuids+"&"+"","_self");
+	
+	
+	}
+	
+	
+	</script>	
+		
+			
+		
+		
+
+	</head>
+	<body>
+	<div id="ContentArea"></div>
+	<!--<iframe src="editors.html" width="800"  frameborder="0" seamless ></iframe>-->
+
+ <script>
+	 if(cuids!=0){
+	document.write('<button type="button" onclick="pcomm()" >Post Command</button>');}
+	
+	</script>
+	
+	
+	</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script src="mycookies.js"></script>
+<script src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="keyboard.js" charset="UTF-8"></script>
+ <link rel="stylesheet" type="text/css" href="keyboard.css">
+<title></title>
+<meta name="" content="">
+<script>/*
+$(document).ready(function(){
+ $("#sb").click(function(){
+ alert("ok submit");
+// var emails=$("#email").val();
+  //var paswd=$("#pasw").val();
+ 
+    $.post("register.php",
+    { Fname:$("#Fname").val(),
+      Lname:$("#Lname").val(),
+      email:$("#email").val(),
+      pasw:$("#pasw").val()
+    },
+    function(data1,data2){
+    var myarr=data1.split(",");
+	//var uidc=;
+	var rwp=myarr[0].toString();
+	alert(data1);//+"  "+rwp+typeof(rwp) +"my try work");	
+	rwp=rwp.trim();
+	if(rwp == "exist")  {
+	//alert("user email or password wrong");
+	location.reload();//reload thelogin page
+	
+	}
+	else{
+	setCookie("und",myarr[0]+"BMU",30);
+	setCookie("uname",$("#Fname").val()+ " "+$("#Lname").val() ,30);
+	setCookie("uimg","defimg.jpg",30);
+	//var usn=getCookie("uname");
+      
+	 // window.parent.location = 'into.html';//reload the parent window
+	 	//window.location = 'into.html';
+	 // $("#un").append(myarr[1]);
+	 }
+    });
+  });
+});
+*/
+function validateForm()
+{
+var x=document.forms["rform"]["email"].value;
+var atpos=x.indexOf("@");
+var dotpos=x.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  {
+  alert("Not a valid e-mail address");
+  return false;
+  }
+  
+  if(document.forms["rform"]["pasw"].value !=document.forms["rform"]["pasw1"].value){
+   alert("password mismach");
+  return false;
+  }
+}
+
+
+</script>
+
+
+
+
+</head>
+<body>
+<form name="rform" action="register.php" method="POST" onsubmit="return validateForm()" >
+
+
+<fieldset>
+  <legend style="color: #67ff99; font-size:26px; background-color:#998800 " title="Register your account">নতুন খাতা খুলুন:</legend>
+<table>
+<tr><td>
+<label for="Fname"title="First-Name:">নামের প্রথমাংশ:</label>
+</td><td>
+<input type="text" name="Fname" id="Fname" class="keyboardInput">
+</td>
+</tr>
+<tr><td>
+<label for="Lname"   title="Last Name">পদবি:</label>
+</td><td>
+<input type="text" name="Lname" id="Lname" class="keyboardInput"><br>
+</td>
+</tr>
+<tr><td>
+<label for="E-mail" title="E-mail">ই-মেল:</label>
+</td><td>
+<input type="text" name="email" id="email"></td>
+</tr>
+<tr><td>
+<label for="Password" title="Password" >পাসওয়ার্ড:</label>
+</td><td>
+<input type="password" name="pasw" id="pasw" class="keyboardInput"> </td>
+</tr>
+<tr><td>
+<label for="Password" title="Confirm Password" >নিশ্চিত করুন পাসওয়াড:</label>
+</td><td>
+<input type="password" name="pasw1" id="pasw1" class="keyboardInput"></td>
+</tr>
+<tr><td  colspan="2">
+<input type="submit" name="submit" value="দাখিল করা"  title="Submit" id="sb">
+<td>
+</tr>
+
+</table>
+</fieldset>
+</form>
+
+
+
+
+</body>
+</html>

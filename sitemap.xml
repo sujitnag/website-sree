@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://sree.yzi.me/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/changeimage.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/setting.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/logout.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/loginpage.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/register.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/addmin/getInvolve.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/addmin/sendemail.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/addmin/siteHelp.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/side-index.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/all-file-list.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/forgetPassword.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/findA.php?type=a</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/findA.php?type=k</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/findA.php?type=g</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/findA.php?type=u</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/findA.php?type=s</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/createAf.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://sree.yzi.me/findA.php?type=ed&amp;uid=&#39;+ids+&#39;</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

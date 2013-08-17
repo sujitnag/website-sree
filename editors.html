@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>Dynamically loading whizzywig editors</title>
+
+<script type="text/javascript" src="keyboard11.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css" href="keyboard.css">
+<link rel="stylesheet" type="text/css" href="whizzywig.css">
+<script  src="whizzywig63.js"></script>
+<script src="jquery-1.7.1.min.js"></script>
+
+<script >
+//var tx=oW.document.getElementsByTagName("iframe");
+//VKI_attach(tx);
+
+//var commandss;
+
+var parameters = location.search;
+parameters=parameters.replace("?","")
+var allv=parameters.split("&");
+//alert("see the val="+allv[0]+"  "+allv[1]+"  "+allv[2]+" comm="+allv[3]);
+var ind=parseInt(allv[2]);
+//alert("ind="+ind);
+////////////////////
+var fm=allv[1].trim()
+$.get(fm,{},function(xml){
+$('user',xml).each(function(i) {
+if(i==ind){
+//alert("enter");
+  var   command = $(this).find("descript").text();
+  //alert("look it  command="+command);
+//  var tx=oW.document.getElementsByTagName("body")[0];
+ // tx.innerHTML = command;
+ setev(command);
+ // commandss=command;
+	//
+}
+});
+});
+
+
+//alert("command="+commandss);
+///////////////////////////
+
+
+////////////////////////
+
+function setev(command){
+//syncTextarea();
+var tx=oW.document.getElementsByTagName("body")[0];
+//var tx=document.getElementById("editor_0");
+ tx.innerHTML = command;
+//$("#editor_0").html( command);
+//alert("setev command="+command);
+}
+
+
+
+$(document).ready(function(){
+/*var foo = document.createElement('input');
+document.body.appendChild(foo);
+VKI_attach(foo);
+var tx=document.getElementById("tx");
+VKI_attach(tx);
+*/
+
+//syncTextarea();
+//$("#editor_0").val( command);
+
+//alert("command="+commandss);
+ $("#sb").click(function(){
+ syncTextarea();
+ // $("#editor_0").html("<p>my name is sujit nag</p>");
+  var tv=$("#editor_0").val();
+  tv=tv.replace(/&lt;script&gt;/,"&lt;nonscript&gt;");
+  tv=tv.replace(/&lt;\\script\s*&gt;/,"&lt;\\nonscript&gt;");
+  tv=tv.replace(/&lt;\?php/,"&lt;nonphp");
+  tv=tv.replace(/\.js/,"nojs");
+  tv=tv.replace(/\.php/,"nophp");
+  tv=tv.replace(/\.asp/,"nonasp");
+  tv=tv.replace(/&nbsp;/gi,'');
+  
+ 
+ // alert(tv);
+  ///////////////////////
+  //alert("save="+parameters);
+	
+			 $.post( "mxml.php",//"login.php"   ,
+    {
+	//email:"sujitnag2011@gmail.com",
+   //   pasw:"sujitnag"
+     ty:allv[0],
+	 fileN:allv[1],
+     indx:allv[2],
+	 com:tv
+	 
+	  
+      //pasw:$("#pasw").val()
+    },
+    function(data1,data2){
+//	alert(data1+"   "+data2);
+  if(data2="success"){
+ // filename=allv[1]
+   window.location = 'base.html?'+allv[1];
+  
+  }
+	});
+  
+ //////////////////////
+ 
+ });
+ 
+ $("#preview").click(function(){
+ //alert("ok ok");
+ 
+ syncTextarea();
+ var tv=$("#editor_0").val();
+ $("#prev").html(tv);
+ 
+ 
+ 
+ });
+ 
+ 
+ 
+ 
+ });
+
+
+count = 0;
+function AddEditor () {
+  newTa = document.createElement('textarea');
+  newTa.id = "editor_"+count;
+  newTa.setAttribute("class","keyboardInput");
+
+  newTa.name = "editor[]";
+  newTa.style.width = "80%"
+ 
+  var oContainer=document.getElementById("container");
+  oContainer.appendChild(newTa); 
+  
+  //_.control['sbb']=_.btn('Red','<font color=red>','<b style=\"color:red\">A</b>'); 
+  makeWhizzyWig("editor_"+count, "all"); 
+  var tx=oW.document.getElementsByTagName("body")[0];
+  //tx.setAttribute("class","keyboardInput");
+   //syncTextarea();  
+//  VKI_attach( tx);//(o("editor_"+count)); oW
+VKI_attach(tx);
+  count++;
+}
+</script>
+</head>
+<body onload="AddEditor ()">
+<div id="prev"></div>
+
+
+<form>
+<div id="container">
+<!--whizzywig editors load here-->
+</div>
+<!--
+<textarea name="edited" row="10" cols="80" style="width:99%; height:150px" id="editor_0">
+<p><strong>Here</strong> is some text you can <em>edit</em>.</p> 
+</textarea>
+-->
+
+<!--<input type="button" value="Add Editor" onclick="javascript:AddEditor();" />-->
+<input type="button" id="sb" value="সংরক্ষণ করুন" title="Save" onclick="myf();" />
+<input type="button" id="preview" value="প্রাকপ্রচার নিরীক্ষণ করা"  title="preview" />
+<!--<textarea id="tx" class="keyboardInput">
+
+</textarea>
+<!--<button name="sbb" id="sbb" value="see value">myclick <button  />-->
+
+</form>
+
+
+
+
+</body>
+</html>

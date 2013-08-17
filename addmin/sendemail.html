@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+<script src="http://sree.yzi.me/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://sree.yzi.me/keyboard.js" charset="UTF-8"></script>
+ 
+ <link rel="stylesheet" type="text/css" href="http://sree.yzi.me/keyboard.css">
+<title></title>
+<meta name="" content="">
+<script>
+
+
+function validateForm()
+{
+//alert("enter");
+var x=document.forms["eform"]["femail"].value;
+var y=document.forms["eform"]["sub"].value;
+var z=document.forms["eform"]["msg"].value;
+//alert("ok="+x);
+
+if ((x==""||y==""||z=="")||(x==null||y==null||z==null))
+  {
+  alert("সমস্ত পুরন করতে হবে");
+  return false;
+  }
+  
+  
+}//onsubmit="return validateForm()"
+</script>
+<style>
+form{
+border:solid 4px #8899ff;
+
+}
+#subj{
+width:300px;
+}
+#temail{
+width:300px;
+}
+#femail{
+width:300px;
+}
+#msg{
+width:300px;
+height:100px
+}
+
+
+</style>
+
+</head>
+<body>
+<form name="eform" action="http://sree.yzi.me/addmin/sendemail.php" method="POST" >
+<table>
+
+<tr>
+<td colspan="2">
+<p> ই-মেল পাঠান</p>
+</td>
+</tr>
+  <tr>
+  <td>
+<label for="fmail" title="Email-from:">পেরক</label>
+</td><td>
+<input type="email" name="femail" id="femail" width="100" required oninvalid="this.setCustomValidity('আপনার ই-মেল লিখুন')"><br>
+</td>
+</tr>
+<tr>
+<td>
+<label for="tmail" title="Email-To:" >প্রাপক</label>
+</td><td>
+<input type="email" name="temail" id="temail" value="admin@sree.yzi.me" disabled="true" ><br>
+</td>
+</tr>
+<tr>
+<td>
+<label for="subj" title="Subject" >বিষয়:</label>
+</td><td>
+<input type="text" name="subj" id="subj"  class="keyboardInput" required oninvalid="this.setCustomValidity('আপনার বিষয় টি লিখন')"><br>
+</td>
+</tr><tr>
+<td>
+<label for="msg" title="Message">বিষয় বস্তু:</label>
+</td><td>
+<textarea  name="msg" id="msg" class="keyboardInput"  required oninvalid="this.setCustomValidity('আপনার বিষয় বস্ভু টি লিখন')"></textarea><br>
+</td>
+</tr>
+<tr><td colspan="2">
+<input type="submit" name="submit"  title="submit" value="পেরন" id="sb">
+</td>
+</tr>
+</table>
+</form>
+
+
+
+
+</body>
+</html>

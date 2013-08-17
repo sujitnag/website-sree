@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script src="mycookies.js"></script>
+
+<title></title>
+<script type="text/javascript" src="keyboard.js" charset="UTF-8"></script>
+ <link rel="stylesheet" type="text/css" href="keyboard.css">
+
+<script src="jquery-1.7.1.min.js"></script>
+<meta name="" content="">
+<script>
+$(document).ready(function(){
+ $("#sb").click(function(){
+// var emails=$("#email").val();
+  //var paswd=$("#pasw").val();
+ var emails=$("#email").val();
+var paswd=$("#pasw").val();
+ if(emails!="" && paswd!="")
+{
+    $.post("login.php",
+    {
+      email:$("#email").val(),
+      pasw:$("#pasw").val()
+    },
+    function(data1,data2){
+    var myarr=data1.split(",");
+	//var uidc=;
+	myarr[0]=myarr[0].replace(/\r\n|\n/,"");
+	var rwp=myarr[0].toString();
+	//rwp=rwp.replace(/\r\n|\n/,"");
+	//alert("login="+myarr[0]+"rwp="+rwp);	
+	rwp=rwp.trim();
+	if(rwp == "wrong")  {
+	//alert("user email or password wrong");
+	//$("#un").append(username);
+	
+	//alert("user email or password wrong");
+	location.reload();//reload thelogin page
+	
+	}
+	else if(rwp == "activate")  {
+	alert("user email or password wrong");
+	//$("#un").append(username);
+	alert(myarr[1]);
+	location.reload();//reload thelogin page
+//	$("#errm").html("user email or password wrong");
+	}	
+	else{
+	setCookie("und",myarr[0]+"BMU",30);
+	setCookie("uname",myarr[1],30);
+	setCookie("uimg",myarr[5],30);
+	//var usn=getCookie("uname");
+      
+	  window.parent.location = 'index.html';//reload the parent window
+	 	//window.location = 'index.html';
+	 // $("#un").append(myarr[1]);
+	 }
+    });
+	}
+	else{
+	alert("change");
+	}
+  });
+});
+
+
+</script>
+
+
+</head>
+<body onload="checkCookie()">
+
+<div id="sh"></div>
+<fieldset>
+  <legend title="Login your account">আপনার অ্যাকাউন্টে লগইন করুন:</legend>
+  <p id="errm" style="color:red"></p>
+<!--<form action="login.php" method="post" enctype="multipart/form-data">-->
+<label for="E-mail" title="E-mail">ই-মেল::</label>
+<input type="text" name="email" id="email"><br>
+<label for="Password" title="Password">পাসওয়ার্ড:</label>
+<input type="password" name="pasw" id="pasw" class="keyboardInput"><br>
+
+<input type="button" name="submit" value="দাখিল করা"  title="Submit" id="sb">
+<a href="forgetPassword.html" target="_self">Forget your password</a>
+</fieldset>
+</body>
+</html>
